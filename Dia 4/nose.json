@@ -1,0 +1,102 @@
+[
+    {
+        "InformacionPersonal": {
+            "Nombre": "Juan Pérez",
+            "Edad": 30,
+            "Direccion": {
+                "Calle": "Calle Principal",
+                "Numero": 123,
+                "Ciudad": "Ciudad Ejemplo"
+            },
+            "Contacto": {
+                "Correo": "juan.perez@example.com",
+                "Telefono": "+123456789"
+            }
+        },
+        "HistorialEducativo": [
+            {
+                "Nivel": "Secundaria",
+                "Institucion": "Instituto Secundario",
+                "AnioInicio": 2000,
+                "AnioFin": 2005
+            },
+            {
+                "Nivel": "Universidad",
+                "Institucion": "Universidad Ejemplar",
+                "Titulo": "Licenciatura en Ciencias",
+                "AnioInicio": 2006,
+                "AnioFin": 2010
+            }
+        ],
+        "ExperienciaLaboral": [
+            {
+                "Puesto": "Desarrollador de Software",
+                "Empresa": "Tech Solutions",
+                "Periodo": "2010-2015",
+                "Responsabilidades": [
+                    "Desarrollo de aplicaciones web",
+                    "Mantenimiento de bases de datos"
+                ]
+            },
+            {
+                "Puesto": "Gerente de Proyectos",
+                "Empresa": "Proyectos Avanzados",
+                "Periodo": "2016-actualidad",
+                "Responsabilidades": [
+                    "Planificación y supervisión de proyectos",
+                    "Coordinación de equipos"
+                ]
+            }
+        ]
+    },
+    {
+        "InformacionPersonal": {
+            "Nombre": "Juan Pérez",
+            "Edad": 30,
+            "Direccion": {
+                "Calle": "Calle Principal",
+                "Numero": 123,
+                "Ciudad": "Ciudad Ejemplo"
+            },
+            "Contacto": {
+                "Correo": "juan.perez@example.com",
+                "Telefono": "+123456789"
+            }
+        },
+        "HistorialEducativo": [
+            {
+                "Nivel": "Secundaria",
+                "Institucion": "Instituto Secundario",
+                "AnioInicio": 2000,
+                "AnioFin": 2005
+            },
+            {
+                "Nivel": "Universidad",
+                "Institucion": "Universidad Ejemplar",
+                "Titulo": "Licenciatura en Ciencias",
+                "AnioInicio": 2006,
+                "AnioFin": 2010
+            }
+        ],
+        "ExperienciaLaboral": [
+            {
+                "Puesto": "Desarrollador de Software",
+                "Empresa": "Tech Solutions",
+                "Periodo": "2010-2015",
+                "Responsabilidades": [
+                    "Desarrollo de aplicaciones web",
+                    "Mantenimiento de bases de datos"
+                ]
+            },
+            {
+                "Puesto": "Gerente de Proyectos",
+                "Empresa": "Proyectos Avanzados",
+                "Periodo": "2016-actualidad",
+                "Responsabilidades": [
+                    "Planificación y supervisión de proyectos",
+                    "Coordinación de equipos"
+                ]
+            }
+        ]
+    }
+]
