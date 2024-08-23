@@ -183,6 +183,32 @@ if(eleccion==1){
 
 }else if(eleccion==3){
     console.log("Update")
+    for (i=0;i<Datos.length; i++){
+        console.log(i+1,Datos[i]["InformacionPersonal"]["Nombre"])
+    }
+    let EleccionPersona = prompt("which user do you want to edit?")
+    MostrarDatos(EleccionPersona-1)
+
+    let Cambiar = prompt("What type of data do you want to change?\nNombre\nEdad\nDireccion\nContacto")
+    if (Cambiar == "Nombre"){
+        let NuevoNombre = prompt("Ingrese el nuevo nombre")
+        Datos[EleccionPersona-1]["InformacionPersonal"]["Nombre"] = NuevoNombre
+    }else if (Cambiar  == "Edad"){
+        let NuevaEdad = prompt("Ingrese la nueva Edad")
+        Datos[EleccionPersona-1]["InformacionPersonal"]["Nombre"] = NuevaEdad
+    }else if (Cambiar == "Direccion"){
+        let CambiarDireccion = prompt("Qué dato de la direccion desea cambiar?\nCalle\nNumero\nCiudad") 
+        let NuevoValor = prompt("Ingrese la nueva",CambiarDireccion)
+        Datos[EleccionPersona-1]["InformacionPersonal"]["Direccion"][CambiarDireccion] = NuevoValor
+    }else if (Cambiar == "Contacto"){
+        let CambiarContacto = prompt("Qué datos de el contacto desea editar?\nCorreo\nTelefono")
+        let NewValue = prompt("Ingrese el nuevo",CambiarContacto)
+        Datos[EleccionPersona-1]["InformacionPersonal"]["Contacto"][CambiarContacto] = NewValue
+    }else{
+        console.log("Esta no es una opcion valida :(")
+    }
+
+    console.log(Datos)
 
 }else if(eleccion==4){
     console.log("Delete")
@@ -206,3 +232,5 @@ if(eleccion==1){
 }else{
     console.log("This isn't a valid opcion")
 }
+
+// Desarrollado por Brayan Maldonado - T.I 1.090.404.470 - Estudiante de Campuslands
