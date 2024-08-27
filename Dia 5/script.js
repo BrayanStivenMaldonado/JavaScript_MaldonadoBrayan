@@ -8,6 +8,22 @@ let Data = [
                 "price": 999.99,
                 "quantityInStock": 50,
                 "supplierId": 101
+            },
+            {
+                "id": 2,
+                "name": "Laasdasdop",
+                "category": "Eleasdasdcs",
+                "price": 999.99,
+                "quantityInStock": 8,
+                "supplierId": 101
+            },
+            {
+                "id": 3,
+                "name": "Laadsada",
+                "category": "Elesfsdics",
+                "price": 999.99,
+                "quantityInStock": 9,
+                "supplierId": 101
             }
         ]
     },
@@ -27,7 +43,7 @@ let Data = [
     {
         "orders" : [
             {
-                "orderId": 1,
+                "orderId": 1001,
                 "productId": 1,
                 "quantity": 5,
                 "orderDate": "2024-08-23",
@@ -36,6 +52,14 @@ let Data = [
         ]
     }
 ]
+
+//Recorrer los datos de las ordenes
+function ViewOrders(){
+    console.log("Data of the orders")
+    for (i=0;i<Data[2]["orders"].length;i++){
+        console.log(Data[2]["orders"][i]["orderId"]),console.log(Data[2]["orders"][i]["productId"]),console.log(Data[2]["orders"][i]["quantity"]),console.log(Data[2]["orders"][i]["orderDate"]),console.log(Data[2]["orders"][i]["status"]),console.log("\n")
+}
+}
 
 //                               Funciones para los productos
 // Añadir producto
@@ -116,57 +140,46 @@ function updateSupplier(id, newDetails){
 
 }
 // Eliminar Proveedor
-function deleteSupplier(id){
+function DeleteSupplier(id){
     console.log(Data[0]["suppliers"]);
     Data[1]["suppliers"].splice(id-1,1)
 }
-
-//                               Funciones para las ordenes
-// Añadir orden
-function addOrder(){
-    let NewId = Number(prompt("Id de la orden"))
-    let NewProductId = Number(prompt("Id del producto"))
-    let NewQuantity = Number(prompt("Cantidad de la orden"))
-    let NewOrderDate = prompt("Fecha del pedido  YYYY/MM/DD")
-    let NewStatus = prompt("Estado del pedido")
-    let NewOrder = {
-        "orderId": NewId,
-        "productId": NewProductId,
-        "quantity": NewQuantity,
-        "orderDate": NewOrderDate,
-        "status": NewStatus
-    }
-    Data[2]["orders"].push(NewOrder)
-}
-// Ver ordenes
-function ViewOrders(){
-    console.log("Data of the orders")
-    for (i=0;i<Data[2]["orders"].length;i++){
-        console.log(Data[2]["orders"][i]["orderId"]),console.log(Data[2]["orders"][i]["productId"]),console.log(Data[2]["orders"][i]["quantity"]),console.log(Data[2]["orders"][i]["orderDate"]),console.log(Data[2]["orders"][i]["status"]),console.log("\n")
-}
-}
-
-// Actualizar orden
-function updateOrder(id, newDetails){
-    console.log(Data[2]["orders"][id])
-    let NewData = prompt("Ingrese el nuevo "+newDetails+" para el pedido")
-    Data[2]["orders"][id][newDetails] = NewData
-}
-
-// Eliminar orden
-function deleteOrder(id){
-    console.log(Data[2]["orders"])
-    Data[2]["orders"].splice(id-1,1)
-}
-
 //                               Funciones para el stock
-function checkStockLevels(){
-    let LowStock = Data[0]["products"].filter(Data[0]["products"] => )
+// Revisar los productos con el stock bajo
+function checkStockLeves(){
+    let LowStock = Data[0]["products"].filter(n=> n.quantityInStock<10)
+    for (const i of LowStock)
+        console.log(i)
+}
+// Aumentar la cantidad en stock de un producto
+function restockProduct(id, quantity){
+    for (const i of Data[0]["products"])
+        if(i["id"]==id){
+            let StockActual = i["quantityInStock"]
+            i["quantityInStock"] = StockActual + quantity
+        }
+}
+//                               Funciones para los reportes
+function generateSalesReport(startDate, endDate){
+    let informeVentas = Datos.orders.filter(n => n.orderDate >=startDate && n.orderDate<=endDate)
+
+    if (informeVentas.length==0){
+        console.log("No hay ventas dentro de este lapso de tiempo");
+    }else{
+        var IngresosT = 0;
+        var ProductosVentas = {};
+
+        for(const i of informeVentas){
+            for(const e of Data[0]["products"]){
+                
+            }
+        }
+    }
 }
 
 
 //Inicio del Programa
-var election = prompt("Main\n\n1. Product Management\n2. Supplier Management\n3. Order Management\n4. Close Program")
+var election = prompt("Main\n\n1. Product Management\n2. Supplier Management\n3. Order Management\n4. Stock Management\n5. Reporting\n6. Search and Filter\n7. Close Program")
 //Menu de opciones
 if (election==1){ //Opciones de los productos
     let ElectionProduct = prompt("Product Management\n\n1. Add Products\n2. View Product\n3. Update Product\n4. Delete Product\n5. Exit")  
@@ -224,7 +237,7 @@ if (election==1){ //Opciones de los productos
         console.log("Delete Supplier")
         ViewSuppliers()
         let SupplierToDelete = parseInt(prompt("Qué proveedor desea eliminar?"))
-        deleteSupplier(SupplierToDelete)
+        DeleteSupplier(SupplierToDelete)
         console.log(Data[1]["suppliers"])
 
     }else if(ElectionSupplier==5){
@@ -236,30 +249,38 @@ if (election==1){ //Opciones de los productos
 
 }else if(election==3){ //Opciones de las ordenes
     let ElectionOrder = prompt("Order Management\n\n1. Add Order\n2. View Order\n3. Update Order\n4. Delete Order\n")
-    if(ElectionOrder==1){
-        console.log("Add Order");    
-        addOrder()
-        console.log(Data[2]["orders"])
-    }else if(ElectionOrder==2){
-        console.log("View Orders");
-        ViewOrders()
-    }else if(ElectionOrder==3){
-        console.log(updateProduct);
-        ViewOrders()
-        let OrderToUpdate = parseInt("Ingrese el id de la orden a editar")
-        let newDetails = prompt("Qué dato va a editar?")
-        updateOrder(OrderToUpdate-1,newDetails)
-        console.log(Data[2]["orders"])
-    }else if(ElectionOrder==4){
-        console.log("Delete Order");
-        ViewOrders()
-        let OrderToDelete = Number(prompt("Ingrese el id del pedido a eliminar"))
-        deleteOrder(OrderToDelete)
-        console.log(Data[2]["orders"])
+    if (ElectionOrder==1){
+        
+    }
+}else if(election==4){
+    let electionStock = prompt("Stock Management\n\n1. Check Stock Leveles\n2. Restock Product\n3. Exit"); 
+    if (electionStock==1){
+        checkStockLeves()
+    }else if(electionStock==2){
+        for (const i of Data[0]["products"]){
+            console.log(i["id"],i["name"])
+        }
+        let id = Number(prompt("Ingrese el id del producto al que le va a agregar cantidad en stock"))
+        let quantity = Number(prompt("Cuántas unidades va a agregar?"))
+        restockProduct(id,quantity)
+        for (const i of Data[0]["products"])
+            console.log(i)
+    }else if(electionStock==3){
+        console.log("Exit")
+    }else{
+        console.log("This isn't an available option")
     }
 
-}else if(election==4){
-    console.log("Stopping program, good bye")
+
+}else if(election==5){
+    console.log("Reporting");
+
+}else if(election==6){
+    console.log("Search and Filter");
+
+}else if(election==7){
+    console.log("Stopping program")
+
 }else{
-    console.log("This isn't an available option")
+    console.log("This isn't an available option");
 }
