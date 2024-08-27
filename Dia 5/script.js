@@ -27,7 +27,7 @@ let Data = [
     {
         "orders" : [
             {
-                "orderId": 1001,
+                "orderId": 1,
                 "productId": 1,
                 "quantity": 5,
                 "orderDate": "2024-08-23",
@@ -36,14 +36,6 @@ let Data = [
         ]
     }
 ]
-
-//Recorrer los datos de las ordenes
-function ViewOrders(){
-    console.log("Data of the orders")
-    for (i=0;i<Data[2]["orders"].length;i++){
-        console.log(Data[2]["orders"][i]["orderId"]),console.log(Data[2]["orders"][i]["productId"]),console.log(Data[2]["orders"][i]["quantity"]),console.log(Data[2]["orders"][i]["orderDate"]),console.log(Data[2]["orders"][i]["status"]),console.log("\n")
-}
-}
 
 //                               Funciones para los productos
 // Añadir producto
@@ -124,10 +116,54 @@ function updateSupplier(id, newDetails){
 
 }
 // Eliminar Proveedor
-function DeleteSupplier(id){
+function deleteSupplier(id){
     console.log(Data[0]["suppliers"]);
     Data[1]["suppliers"].splice(id-1,1)
 }
+
+//                               Funciones para las ordenes
+// Añadir orden
+function addOrder(){
+    let NewId = Number(prompt("Id de la orden"))
+    let NewProductId = Number(prompt("Id del producto"))
+    let NewQuantity = Number(prompt("Cantidad de la orden"))
+    let NewOrderDate = prompt("Fecha del pedido  YYYY/MM/DD")
+    let NewStatus = prompt("Estado del pedido")
+    let NewOrder = {
+        "orderId": NewId,
+        "productId": NewProductId,
+        "quantity": NewQuantity,
+        "orderDate": NewOrderDate,
+        "status": NewStatus
+    }
+    Data[2]["orders"].push(NewOrder)
+}
+// Ver ordenes
+function ViewOrders(){
+    console.log("Data of the orders")
+    for (i=0;i<Data[2]["orders"].length;i++){
+        console.log(Data[2]["orders"][i]["orderId"]),console.log(Data[2]["orders"][i]["productId"]),console.log(Data[2]["orders"][i]["quantity"]),console.log(Data[2]["orders"][i]["orderDate"]),console.log(Data[2]["orders"][i]["status"]),console.log("\n")
+}
+}
+
+// Actualizar orden
+function updateOrder(id, newDetails){
+    console.log(Data[2]["orders"][id])
+    let NewData = prompt("Ingrese el nuevo "+newDetails+" para el pedido")
+    Data[2]["orders"][id][newDetails] = NewData
+}
+
+// Eliminar orden
+function deleteOrder(id){
+    console.log(Data[2]["orders"])
+    Data[2]["orders"].splice(id-1,1)
+}
+
+//                               Funciones para el stock
+function checkStockLevels(){
+    let LowStock = Data[0]["products"].filter(Data[0]["products"] => )
+}
+
 
 //Inicio del Programa
 var election = prompt("Main\n\n1. Product Management\n2. Supplier Management\n3. Order Management\n4. Close Program")
@@ -188,7 +224,7 @@ if (election==1){ //Opciones de los productos
         console.log("Delete Supplier")
         ViewSuppliers()
         let SupplierToDelete = parseInt(prompt("Qué proveedor desea eliminar?"))
-        DeleteSupplier(SupplierToDelete)
+        deleteSupplier(SupplierToDelete)
         console.log(Data[1]["suppliers"])
 
     }else if(ElectionSupplier==5){
@@ -200,9 +236,28 @@ if (election==1){ //Opciones de los productos
 
 }else if(election==3){ //Opciones de las ordenes
     let ElectionOrder = prompt("Order Management\n\n1. Add Order\n2. View Order\n3. Update Order\n4. Delete Order\n")
-    if (ElectionOrder==1){
-        
+    if(ElectionOrder==1){
+        console.log("Add Order");    
+        addOrder()
+        console.log(Data[2]["orders"])
+    }else if(ElectionOrder==2){
+        console.log("View Orders");
+        ViewOrders()
+    }else if(ElectionOrder==3){
+        console.log(updateProduct);
+        ViewOrders()
+        let OrderToUpdate = parseInt("Ingrese el id de la orden a editar")
+        let newDetails = prompt("Qué dato va a editar?")
+        updateOrder(OrderToUpdate-1,newDetails)
+        console.log(Data[2]["orders"])
+    }else if(ElectionOrder==4){
+        console.log("Delete Order");
+        ViewOrders()
+        let OrderToDelete = Number(prompt("Ingrese el id del pedido a eliminar"))
+        deleteOrder(OrderToDelete)
+        console.log(Data[2]["orders"])
     }
+
 }else if(election==4){
     console.log("Stopping program, good bye")
 }else{
