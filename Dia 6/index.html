@@ -3,28 +3,93 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Async</title>
+    <title>Tienda de electronicos</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <input id="ButtonAsync" type="button" value="Async" onclick="mensaje()">
-    <input id="ButtonAlert" type="button" value="Iniciar" onclick="alerta()">
-    <button id="button1">Obtener</button>
-    <button id="button2">Json</button>
+    <div id="top">
+        <h1 id="title">Inventory System</h1>
+    </div>
 
-    <table class="table" id="ListaDeUsuarios">
-        <thead>
-            <tr>
-                <th scope="col">ID ㅤ </th>
-                <th scope="col">Nombre</th>
-                <th scope="col">Cargo</th>
-            </tr>
-        </thead>
-        <tbody>
-        </tbody>
-    </table>
+    <div id="Content">
+        <div id="ProductManagement">
+            <h3>Product Management</h3>
 
-    <div id="output"></div>
+            <section id="DatosProductos">
+                <table id="DataProducts">  
+                    <thead>
+                        <p>View Products</p>
+                        <tr>
+                            <th>id</th>
+                            <th>name</th>
+                            <th>category</th>
+                            <th>price</th>
+                            <th>quantity</th>
+                            <th>Supplier id</th>
+                        </tr>
+                    </thead>
+                    <tbody></tbody>
+                </table>
+
+                <p>Add Product</p>
+                <form id="FormProduct">
+                    <input type="hidden" id="ProductId">
+                    <label for="ProductName">Name<br></label>
+                    <input type="text" id="ProductName">
+                    
+                    <label for="ProductCategory">Category</label>
+                    <input type="text" id="ProductCategory">
+
+                </form>
+
+
+            </section>
+
+            
+
+        </div>
+        <div id="SuppliersManagement">
+            <h3>Suppliers Management</h3>
+
+            <section id="DatosProveedores">
+                <table id="DataSuppliers">  
+                    <thead>
+                        <p>View Suppliers</p>
+                        <tr>
+                            <th>id</th>
+                            <th>name</th>
+                            <th>phone</th>
+                            <th>email</th>
+                            <th>address</th>
+                        </tr>
+                    </thead>
+                    <tbody></tbody>
+                </table>
+            </section>
+
+        </div>
+        <div id="OrdersManagement">
+            <h3>Orders Management</h3>
+
+            <section id="DatosOrdenes">
+                <table id="DataOrders">  
+                    <thead>
+                        <p>View Orders</p>
+                        <tr>
+                            <th>OrderId</th>
+                            <th>ProductId</th>
+                            <th>quantity</th>
+                            <th>Date</th>
+                            <th>status</th>
+                        </tr>
+                    </thead>
+                    <tbody></tbody>
+                </table>
+            </section>
+
+        </div>
+    </div>
+
 </body>
 <script src="./script.js"></script>
 </html>

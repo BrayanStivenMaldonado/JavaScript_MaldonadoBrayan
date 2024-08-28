@@ -1,51 +1,62 @@
-console.log("klk");
-
-function mensaje(){
-    setTimeout(function(){
-        console.log("Holis!!");
-    },5000)
-}
-
-function alerta(){
-    alert("El programa ha fallado con éxito :)");
-}
-
-
-function obtenerTexto(){
-    fetch('texto.txt') //se hace la solicitud al servidor de un archivo "texto.txt"
-    .then(res => res.text()) // se lee la respuesta como texto plano, lo cual devolverá el archivo como una cadena llamado "data"
-    .then(data=>{ // se dará manejo a data mediante su impresión en consola
-        document.getElementById('output').innerHTML=data;
-    })
-    .catch(err =>{
-        console.log("Hubo un error")
-        document.getElementById('output').innerHTML='err';
-    })
-}
-
-function CargarJson(){
-    const tabla = document.querySelector('#ListaDeUsuarios tbody')
-    fetch('data.json')
+function DataProducts(){
+    const tabla = document.querySelector('#DataProducts tbody')
+    fetch('./data.json')
         .then(res => res.json())
         .then(data =>{
-            data.forEach(usuario => {
+            data.products.forEach(product => {
                 const row = document.createElement('tr');
                 row.innerHTML += `
-                    <td>${usuario.id}</td>
-                    <td>${usuario.nombre}</td>
-                    <td>${usuario.cargo}</td>
+                    <td>${product.id}</td>
+                    <td>${product.name}</td>
+                    <td>${product.category}</td>
+                    <td>${product.price}</td>
+                    <td>${product.quantityInStock}</td>
+                    <td>${product.supplierId}</td>
                 `
                 tabla.appendChild(row)
             });
             });
         }
-CargarJson()
+DataProducts()
 
-// var xmlhttp = new XMLHttpRequest();
-// xmlhttp.open('GET',url)
 
-// xmlhttp.onreadystatechange == function(){
-//     if(this.readyState==4 && this.status==200){
-//         var myArr = JSON.parse(this.resposn)
-//     }
-// }
+function DataSuppliers(){
+    const tabla = document.querySelector('#DataSuppliers tbody')
+    fetch('./data.json')
+        .then(res => res.json())
+        .then(data =>{
+            data.suppliers.forEach(supplier => {
+                const row = document.createElement('tr');
+                row.innerHTML += `
+                    <td>${supplier.id}</td>
+                    <td>${supplier.name}</td>
+                    <td>${supplier.contactInfo.phone}</td>
+                    <td>${supplier.contactInfo.email}</td>
+                    <td>${supplier.contactInfo.email}</td>
+                `
+                tabla.appendChild(row)
+            });
+            });
+        }
+DataSuppliers()
+
+
+function DataOrders(){
+    const tabla = document.querySelector('#DataOrders tbody')
+    fetch('./data.json')
+        .then(res => res.json())
+        .then(data =>{
+            data.orders.forEach(order => {
+                const row = document.createElement('tr');
+                row.innerHTML += `
+                    <td>${order.orderId}</td>
+                    <td>${order.productId}</td>
+                    <td>${order.quantity}</td>
+                    <td>${order.orderDate}</td>
+                    <td>${order.status}</td>
+                `
+                tabla.appendChild(row)
+            });
+            });
+        }
+DataOrders()

@@ -1,17 +1,43 @@
-[
-    {
-        "id" : 1,
-        "nombre" : "Pedro",
-        "cargo" : "Trainer"
-    },
-    {
-        "id" : 2,
-        "nombre" : "Brayan",
-        "cargo" : "Camper"
-    },
-    {
-        "id" : 3,
-        "nombre" : "Stiven",
-        "cargo" : "Coordinador"
-    }
-]
+{
+    "products" : [
+        {
+            "id": 1,
+            "name": "Laptop",
+            "category": "Electronics",
+            "price": 999.99,
+            "quantityInStock": 50,
+            "supplierId": 101
+        },
+        {
+            "id": 1,
+            "name": "Laptop",
+            "category": "Electronics",
+            "price": 999.99,
+            "quantityInStock": 50,
+            "supplierId": 101
+        }
+
+    ],
+
+    "suppliers" : [
+        {
+            "id": 101,
+            "name": "Tech Supplies Inc.",
+            "contactInfo": {
+                            "phone": "123-456-7890",
+                            "email": "sales@tech.com",
+                            "address": "123 Tech Lane, Silicon Valley, CA"
+                            }   
+        }    
+    ],
+
+    "orders" : [
+        {
+            "orderId": 1001,
+            "productId": 1,
+            "quantity": 5,
+            "orderDate": "2024-08-23",
+            "status": "Delivered"
+        }
+    ]
+}
