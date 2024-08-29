@@ -19,6 +19,13 @@ function DataProducts(){
         }
 DataProducts()
 
+let newid =parseInt(document.getElementById("NewProductId"))
+
+
+
+
+
+
 
 function DataSuppliers(){
     const tabla = document.querySelector('#DataSuppliers tbody')
@@ -60,3 +67,7 @@ function DataOrders(){
             });
         }
 DataOrders()
+
+function AddProduct(){
+    Dato = document.getElementById("NewProductId").value
+}
