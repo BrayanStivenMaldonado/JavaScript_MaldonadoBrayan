@@ -1,0 +1,27 @@
+body{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+h1{
+    background-color: #0c6cfc;
+    height: 6rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: rgb(214, 214, 214);
+}
+
+#input{
+    display: flex;
+    justify-content: center;
+    margin-top: 5vw;
+    width: 22vw;
+    margin-left: 2vw;
+    padding-bottom: 2vw;
+}
+
+img{
+    width: 9vw;
+}

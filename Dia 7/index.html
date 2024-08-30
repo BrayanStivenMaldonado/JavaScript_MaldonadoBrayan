@@ -4,12 +4,92 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SuperHero API</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <button id="button1">Buscar</button>
+    <h1 id="titulo">Find SuperHero</h1>
+    <div id="input">
+        <input type="text" class="form-control" placeholder="enter the id of the superhero" id="SuperId">
+        <button class="btn btn-primary" id="button1">Find</button>
+    </div>
+
+    <div id="TableContent">
+        <table class="table table-bordered border-primary" id=TableName>
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Name</th>
+                    <th>Image</th>
+                </tr>
+            </thead>
+            <tbody>
+            </tbody>
+        </table>
+        <br>
+        <table id="TablePowerStats" class="table table-bordered border-primary">
+            <thead>
+                <tr>
+                    <th>Intelligence</th>
+                    <th>Strength</th>
+                    <th>Speed</th>
+                    <th>Durability</th>
+                    <th>Power</th>
+                    <th>Combat</th>
+                </tr>
+            </thead>
+            <tbody>
+            </tbody>
+        </table>
+        <br>
+        <table id="TableBiography" class="table table-bordered border-primary">
+            <thead>
+                <tr>
+                    <th>Full Name</th>
+                    <th>Alter Ego</th>
+                    <th>a.k.a</th>
+                    <th>Birthplace</th>
+                    <th>first appearance</th>
+                    <th>Editor</th>
+                    <th>alignment</th>
+                </tr>
+            </thead>
+            <tbody>
+            </tbody>
+        </table>
+        <br>
+        <table id="TableAppearance" class="table table-bordered border-primary"> 
+            <thead>
+                <tr>
+                    <th>Gender</th>
+                    <th>Race</th>
+                    <th>Height</th>
+                    <th>Weight</th>
+                    <th>Eye Color</th>
+                    <th>Hair Color</th>
+                </tr>
+            </thead>
+            <tbody>
+            </tbody>
+        </table>
+        <br>
+        <table id="TableWork" class="table table-bordered border-primary">
+            <thead>
+                <tr>
+                    <th>Occupation</th>
+                    <th>Base</th>
+                </tr>
+            </thead>
+            <tbody>
+            </tbody>
+        </table>
+
+
+    </div>
 
 
     <div id="output"></div>
 </body>
 <script src="./script.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>  
 </html>
