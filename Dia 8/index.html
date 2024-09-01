@@ -8,12 +8,108 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body class="bg-dark text-light">
-    <input type="text" id="FindId">
-    <button id="Button">Find</button>
-    <br>
-    <div id="Data">
-
+    <div id="Boton"  class="d-flex justify-content-start gap-2">
+        <input class="w-25 form-control" type="text" id="FindId">
+        <button class="btn btn-primary" id="Button">Find</button>
     </div>
+
+    <br><br>
+
+    <div id="Content" style="display: none;">
+        <table class="table table-dark" id="Tabla">
+            <thead>
+            </thead>
+            <tbody>
+                <tr>
+                    <th>Name: </th>
+                    <td id="name"> </td>
+                </tr>
+                <tr>
+                    <th>Height: </th>
+                    <td id="heigth"> </td>
+                </tr>
+                <tr>
+                    <th>Mass: </th>
+                    <td id="mass"> </td>
+                </tr>
+                <tr>
+                    <th>Hair color: </th>
+                    <td id="hair_color"> </td>
+                </tr>
+                <tr>
+                    <th>Skin color: </th>
+                    <td id="skin_color"> </td>
+                </tr>
+                <tr>
+                    <th>Eye color: </th>
+                    <td id="eye_color"> </td>
+                </tr>
+                <tr>
+                    <th>Birth year: </th>
+                    <td id="bird_year"> </td>
+                </tr>
+                <tr>
+                    <th>Gender: </th>
+                    <td id="gender"> </td>
+                </tr>
+                <tr>
+                    <th> Homeworld: </th>
+                    <td>
+                        <ul class="list-group">
+                            <li class="list-group-item">
+                                <table class="table table-ligth" id="tabla">
+                                    <tbody id="homeworld">
+                                    </tbody>
+                                </table>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+                <tr>
+                    <th> Film: </th>
+                    <td>
+                        <ul class="list-group" id="film">
+                        </ul>
+                    </td>
+                </tr>
+                <tr>
+                    <th> Species: </th>
+                    <td>
+                        <ul class="list-group" id="species">
+                        </ul>
+                    </td>
+                </tr>
+                <tr>
+                    <th> Vehicles: </th>
+                    <td>
+                        <ul class="list-group" id="vehicles">
+                        </ul>
+                    </td>
+                </tr>
+                <tr>
+                    <th> Starships: </th>
+                    <td>
+                        <ul class="list-group" id="starships">
+                        </ul>
+                    </td>
+                </tr>
+                <tr>
+                    <th>Created: </th>
+                    <td id="created"> </td>
+                </tr>
+                <tr>
+                    <th>Edited: </th>
+                    <td id="edited"> </td>
+                </tr>
+                <tr>
+                    <th>url: </th>
+                    <td id="url"> </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+
 </body>
 <script src="./script.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>  
