@@ -1,0 +1,80 @@
+@import url('https://fonts.googleapis.com/css2?family=Oxanium:wght@300;400;500;600;700;800&display=swap&#39');
+
+body{
+    font-family: 'Oxanium', cursive;
+    background-color: black;
+    background: linear-gradient(to bottom,rgb(89, 188, 255), white);
+    background-repeat: no-repeat;
+    height: 100vh;
+    width: 100%;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+}
+
+.PokedexCaja{
+    display: flex;
+    align-items: center;
+    font-family: 'Oxanium', cursive;
+}
+
+#Pokedex{
+    position: absolute;
+    width: 22vw;
+    z-index: -1;
+}
+
+#Pokemon{
+    position: absolute;
+    margin-left: 7vw;
+    margin-top: -7vw;
+    width: 7vw;
+}
+
+#PokeName{
+    position: absolute;
+    margin-top: 6vw;
+    margin-left: 9vw;
+    font-size: 1.3vw;
+}
+
+#Find{
+    position: absolute;
+    margin-top: 12vw;
+    margin-left: 2.5vw;
+    width: 14vw;
+    height: 2vw;
+    font-size: 0.9vw;
+    color: gray;
+    font-weight: 550;
+    font-family: 'Oxanium', cursive;
+    border-radius: 0.4vw;
+    border: 1.5px solid gray;
+    padding-left: 1vw;
+    z-index: 2;
+}
+
+#BorderFind{
+    width: 14vw;
+    height: 2vw;
+    margin-top: 13vw;
+    margin-left: 2.5vw;
+    background-color: gray;
+    position: absolute;
+    border-radius: 0.4vw;
+    z-index: 1;
+}
+
+#Prev{
+    position: absolute;
+    margin-top: 25vw;
+    margin-left: 5vw;
+    font-family: 'Oxanium', cursive;
+}
+
+#Next{
+    position: absolute;
+    margin-top: 25vw;
+    margin-left: 12vw;
+    font-family: 'Oxanium', cursive;
+}
