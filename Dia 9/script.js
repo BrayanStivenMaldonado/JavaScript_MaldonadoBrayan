@@ -1,14 +1,25 @@
-document.getElementById("Next").addEventListener("click", MostrarNombre())
+let PokemonId = 1
 
-button.addEventListener("keyup", MostrarPokemon()){
-    if (event.keyCode == 13){
-        button.click()
+
+document.getElementById("Prev").addEventListener("click", function(){
+    PokemonId--;
+    MostrarPokemon(PokemonId)
+})
+
+document.getElementById("Next").addEventListener("click", function(){
+    PokemonId++;
+    MostrarPokemon(PokemonId)
+})
+
+document.getElementById("Find").addEventListener("keydown", function(event){
+    if (event.key === "Enter"){
+        PokemonId = parseInt(document.getElementById("Find").value, 10);
+        MostrarPokemon(PokemonId);
     }
-}
+})
 
-function MostrarPokemon(){
-    let id = document.getElementById("Find").value;
-    let url = "https://pokeapi.co/api/v2/pokemon/"+id
+function MostrarPokemon(id){
+    let url = "https://pokeapi.co/api/v2/pokemon/"+id;
     fetch(url)
     .then(res => res.json())
     .then(Data => {
@@ -16,6 +27,7 @@ function MostrarPokemon(){
         let image = document.getElementById("Image")
         image.innerHTML = `
         <img src="${Data.sprites.other.showdown.front_default}">
+        <audio autoplay src="${Data.cries.latest}">
         `
 
         //Mostar el id del Pokemon
@@ -29,6 +41,5 @@ function MostrarPokemon(){
         Name.innerHTML = `
         <p>${Data.name}</p>
         `
-
     })
 }
