@@ -24,18 +24,36 @@ body{
     z-index: -1;
 }
 
-#Pokemon{
-    position: absolute;
-    margin-left: 7vw;
-    margin-top: -7vw;
-    width: 7vw;
+.Gif{
+    width: 10vw;
+    height: 10vw;
+    z-index: 4;
+    margin-left: 5vw;
+    margin-top: -6vw;
+    display: flex;
+    align-items: center;
+    justify-content: center;    
 }
 
-#PokeName{
+.NameAndId{
     position: absolute;
-    margin-top: 6vw;
-    margin-left: 9vw;
+    width: 12vw;
+    height: 2vw;
+    display: flex;
+    align-items: center;
+    justify-content: end;
+    margin-left: 4.5vw;
+    margin-top: 5vw;
     font-size: 1.3vw;
+}
+
+#PokeName, #PokeId{
+    font-size: 1.3vw;
+}
+
+
+#PokeId{
+    color: rgb(168, 168, 168);
 }
 
 #Find{
