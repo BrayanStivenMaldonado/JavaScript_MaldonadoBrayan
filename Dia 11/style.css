@@ -1,0 +1,63 @@
+@import "https://fonts.googleapis.com/css?family=Ubuntu:300,400,500";@import "https://fonts.googleapis.com/css?family=Raleway:400";
+
+*{
+    padding: 0;
+    margin: 0;
+}
+
+body{
+    height: 100vh;
+    overflow: hidden;
+    background: linear-gradient(to top, #e5e5e5 0%, #e5e5e5 50%, #282c2c 50%, #282c2c 100%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Ubuntu';
+}
+
+.Content{
+    background-color: white;
+    width: 70%;
+    height: 80%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#Profile{
+    width: 15%;
+    border-radius: 50%;
+    padding: 4px;
+    border: 1px solid rgb(175, 175, 175);
+    margin-top: 2%;
+}
+
+#Saludo{
+    font-size: 1vw;
+    color: gray;
+}
+
+#Data{
+    font-size: 2.5vw;
+}
+
+.Iconos{
+    width: 100%;
+    height: 9%;
+    border: 1px solid red;
+    display: flex;
+    justify-content: center;
+    overflow: hidden;
+}
+
+.image{
+    width: 5vw;
+    height: 7vw;
+    transform: translateY(-4vw);
+    transition: .2s;
+}
+
+.image:hover{
+    transform: translateY(-0.6vw);
+    transition: .2s;
+}
