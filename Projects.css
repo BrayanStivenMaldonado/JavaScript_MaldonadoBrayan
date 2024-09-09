@@ -21,20 +21,23 @@ body{
 
 }
 
-img{
-    width: 18vw;
-    transform: rotateX(0deg);
-    opacity: 100%;
-    transition: 0.5s;
+section{
+    display: flex;
+    width: 100vw;
+    height: 90vh;
 }
 
-img:hover{
-    width: 21vw;
-    transform: rotateX(36deg);
-    opacity: 70%;
-    transition: 0.8s;
+section img{
+    width: 0px;
+    flex-grow: 1;
+    object-fit: cover;
+    opacity: .8;
+    transition: .5s ease;
 }
 
-#Super{
-    margin-top: 30px;
+section img:hover{
+    cursor: crosshair;
+    width: 300px;
+    opacity: 1;
+    filter: contrast(120%);
 }
