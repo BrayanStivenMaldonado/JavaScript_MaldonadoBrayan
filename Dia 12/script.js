@@ -4,7 +4,7 @@ document.addEventListener("DOMContentLoaded",() =>{
     const addTaskButton = document.querySelector("#addTaskButton")
     
     async function fetchData(){
-        const res = await fetch("https://6674179975872d0e0a950e53.mockapi.io/todoList");
+        const res = await fetch("https://66df33f1de4426916ee3e24d.mockapi.io/tasks");
         data = await res.json();
         return data;
     }
@@ -52,8 +52,72 @@ document.addEventListener("DOMContentLoaded",() =>{
             }
 
         datosContenedor.appendChild(capDiv)
+        });
+        document.querySelectorAll('.completado').forEach(button => {
+            button.addEventListener('click', botonCompletado);
+
+        document.querySelectorAll('.eliminado').forEach(button => {
+            button.addEventListener('click',botonTerminado);
         })
+        });
     }
+
+    async function addNewTask(){
+        const task = taskInput.value;
+        if (task.trim() === ''){
+            return;
+        }
+
+        await fetch('https://66df33f1de4426916ee3e24d.mockapi.io/tasks',{
+            method: 'POST',
+            headers:{
+                'Content-Type' : 'application/json',
+            },
+            body:JSON.stringify({
+                task,
+                status : 'On hold'
+            })
+        });
+        taskInput.value='';
+        const data = await fetchData()
+        displayCapsula(data)
+    }
+    addTaskButton.addEventListener('click',addNewTask)
+
+
+    async function botonCompletado(event){
+        const id = event.target.getAttribute('data-id');
+        await fetch(`https://66df33f1de4426916ee3e24d.mockapi.io/tasks/${id}`,{
+            method : 'PUT',
+            headers : {
+                'Content-Type' : 'application/json',
+            },
+            body:JSON.stringify({
+                status :'ready'
+            })
+        }); 
+        const data = await fetchData();
+        displayCapsula(data)
+    }
+
+
+    async function botonTerminado(event){
+        const id = event.target.getAttribute('data-id');
+        await fetch(`https://66df33f1de4426916ee3e24d.mockapi.io/tasks/${id}`,{
+            method : 'DELETE',
+            headers : {
+                'Content-Type' : 'application/json',
+            },
+            body:JSON.stringify({
+                status :''
+            })
+        }); 
+        const data = await fetchData();
+        displayCapsula(data)
+    }
+
+
+
     fetchData().then(data =>{
         console.log(data)
         displayCapsula(data)
