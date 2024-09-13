@@ -67,22 +67,26 @@ fetch(link)
         let totalMaquina = 0
         function CartasMaquina(){
             contadorMaquina = 10
-            for(let i=0;i<3;i++){
-                cartaMaquina.innerHTML +=`
-                    <img src=${fotosCartas[contadorMaquina]}>
-                    `
-                    if(Valores[contadorMaquina]==="ACE"){
-                        totalMaquina += 1
-                    }else if(Valores[contadorMaquina]==="JACK"){
-                        totalMaquina += 10
-                    }else if(Valores[contadorMaquina]==="QUEEN"){
-                        totalMaquina += 11
-                    }else if(Valores[contadorMaquina]==="KING"){
-                        totalMaquina += 12
-                    }else{
-                        totalMaquina += parseInt(Valores[contadorMaquina])
-                    }
-                    contadorMaquina+=1
+            for(let i=0;i<6;i++){
+                if(totalMaquina<17){
+                    cartaMaquina.innerHTML +=`
+                        <img src=${fotosCartas[contadorMaquina]}>
+                        `
+                        if(Valores[contadorMaquina]==="ACE"){
+                            totalMaquina += 1
+                        }else if(Valores[contadorMaquina]==="JACK"){
+                            totalMaquina += 10
+                        }else if(Valores[contadorMaquina]==="QUEEN"){
+                            totalMaquina += 11
+                        }else if(Valores[contadorMaquina]==="KING"){
+                            totalMaquina += 12
+                        }else{
+                            totalMaquina += parseInt(Valores[contadorMaquina])
+                        }
+                        contadorMaquina+=1
+                }else{
+                    console.log("a")
+                }
             }
         }
         CartasMaquina()
@@ -92,11 +96,14 @@ fetch(link)
         // Funcion para que el usuario pueda quedarse
         Quedarse.addEventListener('click',Quedo)
         function Quedo(){
+            if(totalMaquina>21){
+                alert("El dealer se pasó ("+totalMaquina+" puntos)")
+            }
             if(total>totalMaquina){
                 alert("Has ganado con "+total+" puntos y la maquina sacó "+totalMaquina+" puntos")
                 total = 0
                 carta.innerHTML = ""
-            }else if(total<totalMaquina){
+            }else if(total<totalMaquina ){
                 alert("Perdiste, la maquina sacó "+totalMaquina)
                 total = 0
                 carta.innerHTML = ""
