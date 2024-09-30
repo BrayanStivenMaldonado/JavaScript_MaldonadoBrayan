@@ -1,0 +1,82 @@
+@font-face {
+    font-family: "Montserrat";
+    src: url(./storage/Montserrat-VariableFont_wght.ttf);
+}
+
+*{
+    padding: 0;
+    margin: 0;
+    font-family: Montserrat;
+}
+
+body{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100vw;
+    height: 100vh;
+    overflow-x: hidden;
+}
+
+.arriba{
+    width: 100vw;
+    height: 8vw;
+    background-color: #4054d4;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    padding-bottom: 0.5vw;
+}
+
+.arriba h1{
+    font-size: 3vw;
+    margin-top: 0.5vw;
+}
+
+.arriba p{
+    font-size: 1vw;
+    color: rgb(214, 214, 214);
+}
+
+.arriba input{
+    width: 50vw;
+    height: 3vh;
+    border-radius: 10vw;
+    font-size: 1vw;
+    padding-left: 0.5vw;
+    margin-top: 1vw;
+}
+
+.content{
+    width: 100%;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 2vw;
+}
+
+.persona{
+    width: 50%;
+    height: 5vw;
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    border: 1px solid #4054d4;
+    padding-left: 2%;
+    margin-top: 1vw;
+}
+
+
+.persona img{
+    border-radius: 50%;
+    width: 5vw;
+    height: 5vw;
+    padding-right: 2%;
+}
+
+.filtro{
+    display: none;
+}
