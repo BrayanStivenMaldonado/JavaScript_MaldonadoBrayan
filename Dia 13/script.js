@@ -36,7 +36,7 @@ fetch(link)
         PedirCarta.addEventListener("click",DarCarta)
         function DarCarta(){ //funcion para mostrar la carta den
             contador += 1
-            if(total>21){
+            if(total>22){
                 alert("has perdido")
                 carta.innerHTML = " "
             }else{
@@ -55,22 +55,31 @@ fetch(link)
                     carta.innerHTML += `
                     <img id="CartaUsuario" src=${fotosCartas[contador]}>
                     `
+
+                    carta.innerHTML += `
+                    <div class="Crup">
+                        <p>${total}</p>
+                    </div>
+                    <p id="Crupier">Jugador </p>
+                    `
             }
-            if(total>=21){
-                alert("has perdido")
-                carta.innerHTML = " "
+            if(total>=22){
+                alert("Te has pasado ("+ total +") puntos")
                 total = 0
+                cartaMaquina.innerHTML = ""
+                totalMaquina = 0
+                location.reload()
             }
         }
 
         //Funcion para asignar los valores de la maquina
         let totalMaquina = 0
         function CartasMaquina(){
-            contadorMaquina = 10
+            contadorMaquina = 10 
             for(let i=0;i<6;i++){
                 if(totalMaquina<17){
                     cartaMaquina.innerHTML +=`
-                        <img src=${fotosCartas[contadorMaquina]}>
+                        <img class="Esconder" src=${fotosCartas[contadorMaquina]}>
                         `
                         if(Valores[contadorMaquina]==="ACE"){
                             totalMaquina += 1
@@ -88,71 +97,48 @@ fetch(link)
                     console.log("a")
                 }
             }
+            cartaMaquina.innerHTML += `
+            <div class="Crup Esconder">
+                <p>${totalMaquina}</p>
+            </div>
+            <p id="Crupier" class="Esconder"> <span></span> Crupier</p>
+            `
         }
         CartasMaquina()
-        console.log(totalMaquina)
 
 
         // Funcion para que el usuario pueda quedarse
         Quedarse.addEventListener('click',Quedo)
         function Quedo(){
-            if(totalMaquina>21){
-                alert("El dealer se pasó ("+totalMaquina+" puntos)")
+            if(totalMaquina>21 && total<21){
+                alert("El dealer se pasó ("+totalMaquina+" puntos), Has ganado")
+                cartaMaquina.innerHTML = ""
+                totalMaquina = 0
+                location.reload()
             }
-            if(total>totalMaquina){
+            else if(total>totalMaquina){
                 alert("Has ganado con "+total+" puntos y la maquina sacó "+totalMaquina+" puntos")
                 total = 0
                 carta.innerHTML = ""
+                cartaMaquina.innerHTML = ""
+                totalMaquina = 0
+                location.reload()
             }else if(total<totalMaquina ){
-                alert("Perdiste, la maquina sacó "+totalMaquina)
+                alert("Perdiste, la maquina sacó "+totalMaquina+" puntos")
                 total = 0
                 carta.innerHTML = ""
+                cartaMaquina.innerHTML = ""
+                totalMaquina = 0
+                location.reload()
+            }else if(total==totalMaquina){
+                alert("EMPATE")
+                total = 0
+                carta.innerHTML = ""    
+                cartaMaquina.innerHTML = ""
+                totalMaquina = 0     
+                location.reload()   
             }
         }
 
     })
 })
-
-        // let total = 0
-
-        // total += parseInt(Valores[1])+parseInt(Valores[0])
-        // console.log(total)
-        // for (let i = 0;i<fotosCartas.length;i++){
-
-        //         if(Valores[i]==="ACE"){
-        //             total += 1
-        //         }else if(Valores[i]==="JACK"){
-        //             total += 10
-        //         }else if(Valores[i]==="QUEEN"){
-        //             total += 11
-        //         }else if(Valores[i]==="KING"){
-        //             total += 12
-        //         }else{
-        //             total += parseInt(Valores[i])
-        //         }
-
-        //         if(total<21){
-        //             carta.innerHTML += `
-        //             <img src=${fotosCartas[i]}>
-        //             `
-        //         }   
-        // }
-        // console.log(total)
-
-
-
-
-
-
-
-
-
-// let total = 0
-
-// while(total <= 21){
-//     carta.innerHTML += `
-//     <img src=${Cards.cards[0].image}>
-//     `
-//     total += parseInt(Cards.cards[0].value)
-// }
-// console.log(total)
